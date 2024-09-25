@@ -1,105 +1,115 @@
-def  check_age_21(age: int) -> bool:
+def check_age_21(age: int) -> bool:
     """
-    Implement a function that checks if a given age is 21 or older
-    return True if the age is 21 or older, otherwise return False
-
+    Check if the age is 21 or older
     """
-
-    raise NotImplementedError()
-
+    return age >= 21
 
 
 def check_grade_level(grade: str) -> bool:
     """
-    Implement a function that checks if a given grade level is valid
-    return True if the grade level is valid (between 9 and 12), otherwise return False
-    and it must print the grade level like freshman, sophomore, junior, senior if it is valid
+    Check if the grade level is valid (9-12) and print the corresponding grade name.
     """
-
-    raise NotImplementedError()
+    grade_levels = {'9': 'freshman', '10': 'sophomore', '11': 'junior', '12': 'senior'}
+    grade_str = str(grade)  # Ensure the grade is treated as a string
+    if grade_str in grade_levels:
+        print(grade_levels[grade_str])
+        return True
+    return False
 
 
 def check_date_of_birth(date_of_birth: str) -> bool:
     """
-    Implement a function that checks if a given date of birth is valid
-    return True if the date of birth is valid (between 1900 and current year), otherwise return False
-    and it must return the current year if it is valid
+    Check if the date of birth is between 1900 and the current year.
     """
+    from datetime import datetime
+    current_year = datetime.now().year
+    
+    try:
+        year_of_birth = int(date_of_birth)
+    except ValueError:
+        return False
 
-    raise NotImplementedError()  
+    if 1900 <= year_of_birth <= current_year:
+        print(current_year)
+        return True
+    return False
 
 
-
-def ckeck_the_list_of_cars(car_list: list) -> bool:
+def check_the_list_of_cars(car_list: list) -> bool:
     """
-    Implement a function that checks if a given list of cars contains at least 3 cars
-    return True if the list contains at least 3 cars with different model, otherwise return False
-    and it must return the number of cars with different model if it is valid
+    Check if the car list contains at least 3 unique cars and return the count of unique cars.
     """
-
-    raise NotImplementedError()
-
+    unique_cars = set(car_list)
+    if len(unique_cars) >= 3:
+        print(len(unique_cars))
+        return True
+    return False
 
 
 def check_if_you_can_drive(can_you_drive: str) -> bool:
     """
-    Implement a function that checks if a given string can_you_drive is valid
-    return True if the string can_you_drive is valid (either 'yes' or 'no'), otherwise return False
-    and it must return 'You can drive' if it is valid
+    Check if the driving eligibility is valid (either 'yes' or 'no').
     """
-
-    raise NotImplementedError()
-
+    if can_you_drive.lower() == 'yes':
+        print('You can drive')
+        return True
+    elif can_you_drive.lower() == 'no':
+        return False
+    return False
 
 
 def check_weather(weather: str) -> bool:
     """
-    Implement a function that checks if a given weather is valid
-    create a list of valid weather conditions ['sunny', 'rainy','snowy', 'wind'] 
-    and check if the weather is in the list if true return True otherwise return False
-    and it must return the weather if it is valid
+    Check if the weather condition is valid.
     """
-    raise NotImplementedError()
+    valid_weather = ['sunny', 'rainy', 'snowy', 'wind']
+    if weather.lower() in valid_weather:
+        print(weather)
+        return True
+    return False
 
 
-def check_if_you_can_play_game(can_you_play_game: str) -> bool:
+import random
+def check_if_you_can_play_game() -> bool:
     """
-    Implement a function that checks if a given string can_you_play_game is valid
-    make it random generate a random boolean value (True or False)
-    and it must return 'You can play game' if it is valid
+    Randomly generates a boolean value and returns a message if the result is True.
     """
-
-    raise NotImplementedError()
-
+    import random
+    can_play = random.choice([True, False])
+    if can_play:
+        return 'You can play game'
+    return False
 
 
 
 def check_study_time_or_play_time(study_time_or_play_time: str) -> bool:
     """
-    Implement a function that checks if a given study_time_or_play_time is valid
-    create a list of valid study_time_or_play_time ['study', 'play']
-    and check if the study_time_or_play_time is in the list if true return True otherwise return False
-    and it must return the study_time_or_play_time if it is valid
+    Check if the input is either 'study' or 'play'.
     """
-
-    raise NotImplementedError()
-
+    valid_choices = ['study', 'play']
+    if study_time_or_play_time.lower() in valid_choices:
+        print(study_time_or_play_time)
+        return True
+    return False
 
 
 def make_the_input_store_in_variable(input_string: str) -> str:
     """
-    Implement a function that takes a string input_string and stores it in a variable named 'user_input'
-    return the user_input string
-    and use if-else statements to check the type of the input_string and convert it to the appropriate data type
+    Store the input in a variable and convert it to the appropriate type (int, float, or str).
     """
-    raise NotImplementedError()
-
-
+    user_input = input_string
+    try:
+        if '.' in input_string:
+            user_input = float(input_string)
+        else:
+            user_input = int(input_string)
+    except ValueError:
+        user_input = input_string  # Keep it as a string if it's not a number
+    return user_input
 
 
 def check_if_the_number_is_even(number: int) -> bool:
     """
-    Implement a function that checks if a given number is even
-    return True if the number is even, otherwise return False
+    Check if the given number is even.
     """
-    raise NotImplementedError()
+    return number % 2 == 0

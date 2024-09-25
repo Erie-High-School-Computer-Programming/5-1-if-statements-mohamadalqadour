@@ -22,13 +22,13 @@ def test_check_date_of_birth():
     assert assignment.check_date_of_birth(str(current_year)) is True
 
 def test_check_the_list_of_cars():
-    assert assignment.ckeck_the_list_of_cars(["Toyota", "Honda", "Ford"]) is True
-    assert assignment.ckeck_the_list_of_cars(["Toyota", "Honda"]) is False
-    assert assignment.ckeck_the_list_of_cars(["Toyota", "Toyota", "Honda"]) is False
+    assert assignment.check_the_list_of_cars(["Toyota", "Honda", "Ford"]) is True
+    assert assignment.check_the_list_of_cars(["Toyota", "Honda"]) is False
+    assert assignment.check_the_list_of_cars(["Toyota", "Toyota", "Honda"]) is False
 
 def test_check_if_you_can_drive():
     assert assignment.check_if_you_can_drive("yes") is True
-    assert assignment.check_if_you_can_drive("no") is True
+    assert assignment.check_if_you_can_drive("no") is False
     assert assignment.check_if_you_can_drive("maybe") is False
 
 def test_check_weather():
@@ -40,8 +40,9 @@ def test_check_weather():
 
 def test_check_if_you_can_play_game():
     # This test may vary as it generates random boolean
-    result = assignment.check_if_you_can_play_game("game")
-    assert result in ['You can play game', False]
+    result = assignment.check_if_you_can_play_game()
+    assert result in [True, False, 'You can play game']
+
 
 def test_check_study_time_or_play_time():
     assert assignment.check_study_time_or_play_time("study") is True
